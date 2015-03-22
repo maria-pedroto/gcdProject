@@ -15,8 +15,8 @@ download_file <- function() {
 	if (!file.exists(path)) {
 		dir.create(path);
 	}
-#	download(url, dest=file.path(path, f), mode="wb") 
-#	unzip (file.path(path, f))
+	download(url, dest=file.path(path, f), mode="wb") 
+	unzip (file.path(path, f))
 
 	return(path);
 }
@@ -57,6 +57,9 @@ merge_dataset <- function(dtTrain, dtTest, dtSubjectTrain, dtSubjectTest, dtActi
 #Please upload your data set as a txt file created with write.table() using row.name=FALSE
 write_dataset <- function(path, result) {
 	write.table(result, paste0(path, "tidy_dataset.txt"));
+	
+	print(head(result));
+	print(paste0(path, "tidy_dataset.txt"));
 }
 
 main <- function() {
@@ -118,7 +121,12 @@ main <- function() {
 
 	setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
 	dtTidy <- dt[, list(count = .N, average = mean(value)), by=key(dt)];
-
+	
+	str(dtTidy);
+	key(dtTidy);
+	head(dtTidy);
+	summary(dtTidy);
+	
 	write_dataset(path, dtTidy);
 }
 
