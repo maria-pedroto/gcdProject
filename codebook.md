@@ -64,7 +64,7 @@ List the some lines of data table
 ```r
 print(head(dtTidy))
 ```
-
+```
 ##    subject activity featDomain featAcceleration featInstrument featJerk
 ## 1:       1   LAYING       Time               NA      Gyroscope       NA
 ## 2:       1   LAYING       Time               NA      Gyroscope       NA
@@ -79,3 +79,4 @@ print(head(dtTidy))
 ## 4:            NA           SD        X    50 -0.87354387
 ## 5:            NA           SD        Y    50 -0.95109044
 ## 6:            NA           SD        Z    50 -0.90828466
+```
